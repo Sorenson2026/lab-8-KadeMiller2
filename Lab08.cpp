@@ -1,9 +1,11 @@
 //Kade Miller 3/10/26 Lab08 
+//This program processes a sequence of integers from 1 to 10 and outputs
+//count, minimum, maximum and average of the entered values
 #include <iostream>
 #include <iomanip>
 using namespace std;
 
-/*This program processes a sequence of integers from 1 to 10 and outputs
+/*This function processes a sequence of integers from 1 to 10 and outputs
 the count, minimum, maximum and average of the entered values*/ 
 int main()
 {
