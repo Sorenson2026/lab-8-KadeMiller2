@@ -8,7 +8,7 @@ the count, minimum, maximum and average of the entered values*/
 int main()
 {
 	//Create variables
-	int num1, num2, count = 0, min, max, sum;
+	int num1, num2 = 20, count = 0, min, max, sum;
 	float average;
 
 	//Greeting
@@ -31,33 +31,40 @@ int main()
 	{
 		do
 		{
-			//prompt user for another number
+			//prompt user for another number 
 			cout << "Enter another integer (0 to quit): ";
 			cin >> num2;
 
-			//use this loop to find max and min
-			if (num2 > max)
-				max = num2;
-			else if (num2 != 0 && num2 < min)
-				min = num2;
+			//validate user input is between 0 and 10
+			while (num2 < 0 || num2 >= 10)
+			{
+				cout << "You entered a number outside the range of 0 and 10, re-enter a new number: ";
+				cin >> num2;
+			}
 
-			//add new number to previous sum
-			sum += num2;
+				//use this loop to find max and min
+				if (num2 > max)
+					max = num2;
+				else if (num2 != 0 && num2 < min)
+					min = num2;
 
-			//increment count
-			count += 1;
-		} while (num2 != 0); 
+				//add new number to previous sum
+				sum += num2;
 
-		//calculate average
-		average = static_cast<float>(sum) / count;
+				//increment count
+				count += 1;
+			} while (num2 != 0);
 
-		//output values
-		cout << endl;
-		cout << "Count Min  Max  Average" << endl;
-		cout << left << setw(6) << count;
-		cout << setw(5) << min;
-		cout << setw(5) << max;
-		cout << setw(5) << setprecision(3) << average;
+			//calculate average
+			average = static_cast<float>(sum) / count;
+
+			//output values
+			cout << endl;
+			cout << "Count Min  Max  Average" << endl;
+			cout << left << setw(6) << count;
+			cout << setw(5) << min;
+			cout << setw(5) << max;
+			cout << setw(5) << setprecision(3) << average;
 	} 
 	return 0;
 }
