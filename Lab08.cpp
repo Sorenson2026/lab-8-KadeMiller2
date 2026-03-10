@@ -10,6 +10,7 @@ int main()
 	//Create variables
 	int num1, num2 = 20, count = 0, min, max, sum;
 	float average;
+	char choice;
 
 	//Greeting
 	cout << "This program processes a sequence of integers from 1 to 10 and outputs ";
@@ -26,21 +27,24 @@ int main()
 	max = num1;
 	min = num1;
 
-	//Create loop
-	if (num1 != 0)
+	//put entire loop inside a do while loop to be able to do multiple interactions
+	do
 	{
-		do
+		//Create loop
+		if (num1 != 0)
 		{
-			//prompt user for another number 
-			cout << "Enter another integer (0 to quit): ";
-			cin >> num2;
-
-			//validate user input is between 0 and 10
-			while (num2 < 0 || num2 >= 10)
+			do
 			{
-				cout << "You entered a number outside the range of 0 and 10, re-enter a new number: ";
+				//prompt user for another number 
+				cout << "Enter another integer (0 to quit): ";
 				cin >> num2;
-			}
+
+				//validate user input is between 0 and 10
+				while (num2 < 0 || num2 >= 10)
+				{
+					cout << "You entered a number outside the range of 0 and 10, re-enter a new number: ";
+					cin >> num2;
+				}
 
 				//use this loop to find max and min
 				if (num2 > max)
@@ -65,6 +69,9 @@ int main()
 			cout << setw(5) << min;
 			cout << setw(5) << max;
 			cout << setw(5) << setprecision(3) << average;
-	} 
+		}
+		cout << "\n\nWould you like to run a new series of numbers? Y for yes, N for no: ";
+		cin >> choice;
+	} while (choice == 'y' || choice == 'Y');
 	return 0;
 }
